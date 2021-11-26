@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hacker News",
+  "name": "Hacker News - Stas Version"
+  /*
   "icons": [
     {
       "src": "favicon.ico",
@@ -23,3 +24,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+*/
