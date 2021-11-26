@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import './App.css';
+import HackerContent from "./HackerContent";
 
 function App() {
   const [newsItems, setNewsItems] = useState ([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const BASE_URL = "https://hn.algolia.com/api/v1/search?";
 
@@ -13,6 +15,7 @@ function loadNews(searchQuery) {
   const url = searchQuery
   ? `${BASE_URL}query=${searchQuery}`
   : `${BASE_URL}tags=front_page`;
+  setIsError(false);
   setIsLoading(true);
 
   fetch(url)
@@ -21,7 +24,7 @@ function loadNews(searchQuery) {
     setIsLoading(false);
     setNewsItems(json.hits);
   })
-  .catch(() => console.log("request failed"));
+  .catch((err) => setIsError(true));
 }
 
 
@@ -29,21 +32,28 @@ const reset = () => {
   setSearchQuery("");
   loadNews();
 };
-{/* 
-const noResults = () => {
-
-  if (!newsItems.length) {
-    return <div>no result, try something else</div>;
-  }
-}
-*/}
-console.log(searchQuery)
 
 const handleKeyPress = (e) => {
   if (e.key === 'Enter') {
     loadNews(searchQuery); 
   }
 }
+
+const getContent = () => {
+  if (isError) {
+    return <div>something went wrong :( try again later</div>;
+}
+  if (isLoading) {
+  return (<div>be patient...</div>);
+}  
+  if (!newsItems.length) {
+  return <div>no results, try something else</div>;
+} 
+  return <HackerContent newsItems={newsItems}/>
+}
+
+console.log(searchQuery)
+
 
 
   return (
@@ -80,15 +90,7 @@ const handleKeyPress = (e) => {
           </div>
         </div>
         <div className="HackerContentContainer">
-        {isLoading ? (<div>be patient...</div>) : (
-        newsItems.map(({ title, url, author, created_at }) => (
-          <div className="HackerContent">
-        <div className="NewsTitle"><a href={url}>{title}</a></div>
-        <div className="NewsAuthor">written by {author} on {created_at.substr(0, 10)}</div>
-            </div>
-        ))
-      )}
-    {/*  {noResults()}   */}
+        {getContent()}
         </div>
       </main>
     </div>
