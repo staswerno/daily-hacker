@@ -41,13 +41,13 @@ const handleKeyPress = (e) => {
 
 const getContent = () => {
   if (isError) {
-    return <div>something went wrong :( try again later</div>;
+    return <div className="ResponsePanels">something went wrong :( try again later</div>;
 }
   if (isLoading) {
-  return (<div>be patient...</div>);
+  return (<div className="ResponsePanels"><p>i am a tiny person trapped inside your computer who can only communicate through loading messages </p><p> please send for help!</p></div>);
 }  
   if (!newsItems.length) {
-  return <div>no results, try something else</div>;
+  return <div className="ResponsePanels">no results, try something else</div>;
 } 
   return <HackerContent newsItems={newsItems}/>
 }

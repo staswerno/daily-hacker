@@ -49,6 +49,14 @@ h1 {
   box-shadow: 2px 2px 0px black;
 }
 
+.ResponsePanels {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 0px black;
+}
+
 button {
   background-color: palevioletred;
   border: 1px solid white;
