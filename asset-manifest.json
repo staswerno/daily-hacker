@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/daily-hacker/static/css/main.77595a41.chunk.css",
+    "main.js": "/daily-hacker/static/js/main.a320154c.chunk.js",
+    "main.js.map": "/daily-hacker/static/js/main.a320154c.chunk.js.map",
+    "runtime-main.js": "/daily-hacker/static/js/runtime-main.baab9488.js",
+    "runtime-main.js.map": "/daily-hacker/static/js/runtime-main.baab9488.js.map",
+    "static/js/2.fd4a8c45.chunk.js": "/daily-hacker/static/js/2.fd4a8c45.chunk.js",
+    "static/js/2.fd4a8c45.chunk.js.map": "/daily-hacker/static/js/2.fd4a8c45.chunk.js.map",
+    "index.html": "/daily-hacker/index.html",
+    "static/css/main.77595a41.chunk.css.map": "/daily-hacker/static/css/main.77595a41.chunk.css.map",
+    "static/js/2.fd4a8c45.chunk.js.LICENSE.txt": "/daily-hacker/static/js/2.fd4a8c45.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.baab9488.js",
+    "static/js/2.fd4a8c45.chunk.js",
+    "static/css/main.77595a41.chunk.css",
+    "static/js/main.a320154c.chunk.js"
+  ]
+}
