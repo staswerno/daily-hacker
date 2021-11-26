@@ -39,6 +39,11 @@ const noResults = () => {
 */}
 console.log(searchQuery)
 
+const handleKeyPress = (e) => {
+  if (e.key === 'Enter') {
+    loadNews(searchQuery); 
+  }
+}
 
 
   return (
@@ -53,6 +58,7 @@ console.log(searchQuery)
           <div className="SearchItem">
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
             value={searchQuery}
             className="SearchInput"
             name="search"
@@ -69,7 +75,7 @@ console.log(searchQuery)
           <div className="SearchItem">
           <button className="ResetButton"
           onClick={reset}>
-            most recent
+            recent
           </button>
           </div>
         </div>
