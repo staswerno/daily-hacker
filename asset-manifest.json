@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/daily-hacker/static/css/main.77595a41.chunk.css",
-    "main.js": "/daily-hacker/static/js/main.a320154c.chunk.js",
-    "main.js.map": "/daily-hacker/static/js/main.a320154c.chunk.js.map",
+    "main.js": "/daily-hacker/static/js/main.0d267308.chunk.js",
+    "main.js.map": "/daily-hacker/static/js/main.0d267308.chunk.js.map",
     "runtime-main.js": "/daily-hacker/static/js/runtime-main.baab9488.js",
     "runtime-main.js.map": "/daily-hacker/static/js/runtime-main.baab9488.js.map",
     "static/js/2.fd4a8c45.chunk.js": "/daily-hacker/static/js/2.fd4a8c45.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.baab9488.js",
     "static/js/2.fd4a8c45.chunk.js",
     "static/css/main.77595a41.chunk.css",
-    "static/js/main.a320154c.chunk.js"
+    "static/js/main.0d267308.chunk.js"
   ]
 }
