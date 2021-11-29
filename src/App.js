@@ -7,14 +7,15 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [pageNumber, setPageNumber] = useState(0);
   const BASE_URL = "https://hn.algolia.com/api/v1/search?";
 
   useEffect((loadNews), []);
 
 function loadNews(searchQuery) {
   const url = searchQuery
-  ? `${BASE_URL}query=${searchQuery}`
-  : `${BASE_URL}tags=front_page`;
+  ? `${BASE_URL}query=${searchQuery}&hitsPerPage=8&page=${pageNumber}`
+  : `${BASE_URL}tags=front_page&hitsPerPage=8&page=${pageNumber}`;
   setIsError(false);
   setIsLoading(true);
 
@@ -29,22 +30,38 @@ function loadNews(searchQuery) {
 
 
 const reset = () => {
+  setPageNumber(0);
   setSearchQuery("");
   loadNews();
 };
 
 const handleKeyPress = (e) => {
   if (e.key === 'Enter') {
+    setPageNumber(0);
     loadNews(searchQuery); 
   }
 }
+
+const nextPage = () => {
+  const newPage = pageNumber + 1;
+  setPageNumber(newPage);
+  searchQuery ? loadNews(searchQuery) : loadNews();
+}
+
+const prevPage = () => {
+  const newPage = pageNumber - 1;
+  newPage ? setPageNumber(newPage) : setPageNumber(0);
+  searchQuery ? loadNews(searchQuery) : loadNews();
+}
+
+console.log(pageNumber)
 
 const getContent = () => {
   if (isError) {
     return <div className="ResponsePanels">something went wrong :( try again later</div>;
 }
   if (isLoading) {
-  return (<div className="ResponsePanels"><p>i am a tiny person trapped inside your computer who can only communicate through loading messages </p><p> please send for help!</p></div>);
+  return (<div className="ResponsePanels"><p>i am a tiny person trapped inside the internet who can only communicate through loading messages </p><p> please send for help!</p></div>);
 }  
   if (!newsItems.length) {
   return <div className="ResponsePanels">no results, try something else</div>;
@@ -91,7 +108,12 @@ console.log(searchQuery)
         </div>
         <div className="HackerContentContainer">
         {getContent()}
+        <div className="PagContainer">
+          <button onClick={prevPage}>prev</button>
+          <button onClick={nextPage}>next</button>
         </div>
+        </div>
+      
       </main>
     </div>
   );
