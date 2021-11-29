@@ -3,20 +3,20 @@ import './App.css';
 import HackerContent from "./HackerContent";
 
 function App() {
+  const [pageNumber, setPageNumber] = useState(0);
   const [newsItems, setNewsItems] = useState ([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [pageNumber, setPageNumber] = useState(0);
 
   const BASE_URL = "https://hn.algolia.com/api/v1/search?";
 
-  useEffect((loadNews), []);
+  useEffect((loadNews), [pageNumber, searchQuery]);
 
-function loadNews(searchQuery) {
+function loadNews() {
   const url = searchQuery
-  ? `${BASE_URL}query=${searchQuery}&hitsPerPage=8&page=${pageNumber}`
-  : `${BASE_URL}tags=front_page&hitsPerPage=8&page=${pageNumber}`;
+  ? `${BASE_URL}query=${searchQuery}&hitsPerPage=5&page=${pageNumber}`
+  : `${BASE_URL}tags=front_page&hitsPerPage=5&page=${pageNumber}`;
   setIsError(false);
   setIsLoading(true);
 
@@ -36,24 +36,25 @@ const reset = () => {
   loadNews();
 };
 
-const handleKeyPress = (e) => {
-  if (e.key === 'Enter') {
+const handleSubmit = (e) => {
+    e.preventDefault();
     setPageNumber(0);
-    loadNews(searchQuery); 
-  }
+    setSearchQuery(e.target.search.value); 
 }
 
 const nextPage = () => {
   const newPage = pageNumber + 1;
   setPageNumber(newPage);
-  searchQuery ? loadNews(searchQuery) : loadNews();
+//  searchQuery ? loadNews(searchQuery) : loadNews();
 }
 
 const prevPage = () => {
   const newPage = pageNumber - 1;
-  newPage >= 1 ? setPageNumber(newPage) : setPageNumber(0);
-  searchQuery ? loadNews(searchQuery) : loadNews();
+  setPageNumber(newPage);
+//  searchQuery ? loadNews(searchQuery) : loadNews();
 }
+
+
 
 console.log(pageNumber)
 
@@ -82,39 +83,37 @@ console.log(searchQuery)
         </h1>
       </header>
       <main>
-        <div className="SearchContainer">
-          <div className="SearchItem">
-          <input
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyPress={handleKeyPress}
-            value={searchQuery}
-            className="SearchInput"
-            name="search"
-            placeholder="search the daily hacker..."
-          />
+        <div className='SearchContainer'>
+          <div className='SearchItem'>
+            <form onSubmit={handleSubmit}>
+              <input
+                className='SearchInput'
+                name='search'
+                placeholder='search the daily hacker...'
+              />
+
+              <button className='SearchButton SearchItem'>search</button>
+            </form>
           </div>
-          <div className="SearchItem">
-          <button className="SearchButton"
-          onClick={() => loadNews(searchQuery)}
-          >
-            search
-          </button>
-          </div>
-          <div className="SearchItem">
-          <button className="ResetButton"
-          onClick={reset}>
-            recent
-          </button>
+
+          <div className='SearchItem'>
+            <button className='ResetButton' onClick={reset}>
+              recent
+            </button>
           </div>
         </div>
-        <div className="HackerContentContainer">
-        {getContent()}
-        <div className="PagContainer">
-          <button onClick={prevPage}>prev</button>
-          <button onClick={nextPage}>next</button>
+        <div className='HackerContentContainer'>
+          {getContent()}
+          <div className='PagContainer'>
+            <button 
+              onClick={prevPage}
+              disabled={pageNumber === 0}
+            >
+              prev
+            </button>
+            <button onClick={nextPage}>next</button>
+          </div>
         </div>
-        </div>
-      
       </main>
     </div>
   );
