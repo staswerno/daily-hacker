@@ -8,6 +8,7 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+
   const BASE_URL = "https://hn.algolia.com/api/v1/search?";
 
   useEffect((loadNews), []);
@@ -50,7 +51,7 @@ const nextPage = () => {
 
 const prevPage = () => {
   const newPage = pageNumber - 1;
-  newPage ? setPageNumber(newPage) : setPageNumber(0);
+  newPage >= 1 ? setPageNumber(newPage) : setPageNumber(0);
   searchQuery ? loadNews(searchQuery) : loadNews();
 }
 
