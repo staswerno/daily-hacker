@@ -33,7 +33,6 @@ function loadNews() {
 const reset = () => {
   setPageNumber(0);
   setSearchQuery("");
-  loadNews();
 };
 
 const handleSubmit = (e) => {
