@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/daily-hacker/static/css/main.eefad068.chunk.css",
-    "main.js": "/daily-hacker/static/js/main.dec45da5.chunk.js",
-    "main.js.map": "/daily-hacker/static/js/main.dec45da5.chunk.js.map",
+    "main.css": "/daily-hacker/static/css/main.32399f5e.chunk.css",
+    "main.js": "/daily-hacker/static/js/main.e3c7faef.chunk.js",
+    "main.js.map": "/daily-hacker/static/js/main.e3c7faef.chunk.js.map",
     "runtime-main.js": "/daily-hacker/static/js/runtime-main.baab9488.js",
     "runtime-main.js.map": "/daily-hacker/static/js/runtime-main.baab9488.js.map",
     "static/js/2.fd4a8c45.chunk.js": "/daily-hacker/static/js/2.fd4a8c45.chunk.js",
     "static/js/2.fd4a8c45.chunk.js.map": "/daily-hacker/static/js/2.fd4a8c45.chunk.js.map",
     "index.html": "/daily-hacker/index.html",
-    "static/css/main.eefad068.chunk.css.map": "/daily-hacker/static/css/main.eefad068.chunk.css.map",
+    "static/css/main.32399f5e.chunk.css.map": "/daily-hacker/static/css/main.32399f5e.chunk.css.map",
     "static/js/2.fd4a8c45.chunk.js.LICENSE.txt": "/daily-hacker/static/js/2.fd4a8c45.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.baab9488.js",
     "static/js/2.fd4a8c45.chunk.js",
-    "static/css/main.eefad068.chunk.css",
-    "static/js/main.dec45da5.chunk.js"
+    "static/css/main.32399f5e.chunk.css",
+    "static/js/main.e3c7faef.chunk.js"
   ]
 }
