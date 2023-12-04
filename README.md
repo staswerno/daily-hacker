@@ -3,5 +3,3 @@
 search hacker news items via their api
 
 try it out here: https://staswerno.github.io/daily-hacker
-
->>> testing multiple github accounts
